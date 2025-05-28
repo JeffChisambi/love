@@ -1,0 +1,141 @@
+body {
+    background: #fff0f5;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .envelope-wrapper {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    perspective: 1000px;
+    min-width: 800px;
+    min-height: 800px;
+  }
+  
+  .envelope {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #ff4d88;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .letter {
+    font-family: 'Dancing Script', cursive;
+  }
+  
+  
+  .flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: #ff99bb;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform-origin: top;
+    transition: transform 1s ease;
+    z-index: 3;
+  }
+  
+  .body {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    background: #ff4d88;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    z-index: 2;
+  }
+  
+  .letter {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 1s ease;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    opacity: 0;
+    font-size: 1rem;
+  }
+  
+  .show-letter {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  
+  .open-flap {
+    transform: rotateX(-180deg);
+  }
+  .hearts {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .heart {
+    position: absolute;
+    bottom: 0;
+    width: 20px;
+    height: 20px;
+    background: pink;
+    transform: rotate(45deg);
+    animation: float 4s linear infinite;
+    border-radius: 50% 50% 0 0;
+  }
+  
+  .heart::before,
+  .heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: pink;
+    border-radius: 50%;
+  }
+  
+  .heart::before {
+    top: -10px;
+    left: 0;
+  }
+  
+  .heart::after {
+    left: -10px;
+    top: 0;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-300px) scale(0.5);
+      opacity: 0;
+    }
+  }
+    
+  .timer {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #e91e63;
+    font-weight: bold;
+  }
+  
